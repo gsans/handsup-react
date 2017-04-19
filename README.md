@@ -5,16 +5,16 @@
 - [Live](https://handsup-63347.firebaseapp.com/#/)
 
 ## HandsUp 🙌
-Make your event more interactive allowing attendees to participate by adding questions and voting using their phone or laptop.
+Make your events more interactive allowing attendees to participate by adding questions and voting using their phone or laptop.
 
-Organisers and speakers can use it to answer questions and run Q&A or panels sessions smoothly.
+Organisers and speakers can use it to answer questions and run Q&A or panels sessions.
 
 ## Technology stack
 
 This application integrates the following technologies:
 - [Auth0](http://auth0.com) to authenticate users using their social profiles (Google, Twitter)
 - [Apollo Client](http://dev.apollodata.com) to communicate with GraphQL Server
-- [graph.cool](http://graph.cool) providing the GraphQL Server
+- [graphcool](http://graph.cool) providing the GraphQL Server
 
 ## Usage
 
@@ -47,7 +47,7 @@ $ yarn run dev
 
 ## Getting Started
 
-In order to run this project you need to create the data model (schema) below using [graph.cool](http://graph.cool) console online and setup Auth0. 
+In order to run this project you need to create the data model (schema) below using [graphcool](http://graph.cool) console online and setup Auth0. 
 
 ### graphcool - HandsUp Schema
 
@@ -92,6 +92,9 @@ You can read the following blog as reference for an example as how you would cre
 In order to use Auth0 you need to do few steps. You can find some assistance by reading the articles below.
 
 - [User Authentication with Auth0 for React and Apollo](https://www.graph.cool/docs/tutorials/react-apollo-auth0-pheiph4ooj)
+- [Auth0 - React Getting Started](https://auth0.com/docs/quickstart/spa/react/00-getting-started)
+- [Connect your app to Google](https://auth0.com/docs/connections/social/google)
+- [Connect your app to Twitter](https://auth0.com/docs/connections/social/twitter)
 
 <img src="./src/images/partyparrot.png" />
 
