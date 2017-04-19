@@ -1,6 +1,6 @@
 # handsup-react
 
-![HandsUp 🙌](https://gfycat.com/QuestionableWigglyBantamrooster)
+<img src="./src/images/handsup.gif"/>
 [Live](https://handsup-63347.firebaseapp.com/#/)
 
 Make your event more interactive allowing attendees to participate by adding questions and voting using their phone or laptop.
@@ -91,7 +91,7 @@ In order to use Auth0 you need to do few steps. You can find some assistance by 
 
 - [User Authentication with Auth0 for React and Apollo](https://www.graph.cool/docs/tutorials/react-apollo-auth0-pheiph4ooj)
 
-<img src="./src/images/partyparrot.png" align="left"/>
+<img src="./src/images/partyparrot.png" />
 
 ## License
 MIT © [Gerard Sans](https://github.com/gsans)
