@@ -1,7 +1,7 @@
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { SubscriptionClient, addGraphQLSubscriptions } from 'subscriptions-transport-ws'
 
-const wsClient = new SubscriptionClient('wss://subscriptions.graph.cool/v1/cj1132nbg4pwk0138d8ummhiq', {
+const wsClient = new SubscriptionClient('wss://subscriptions.graph.cool/v1/__ENTER_YOUR_KEY__', {
   reconnect: true,
 /*  connectionParams: {
     authToken: user.authToken,
@@ -9,7 +9,7 @@ const wsClient = new SubscriptionClient('wss://subscriptions.graph.cool/v1/cj113
 })
 
 const networkInterface = createNetworkInterface({
-  uri: 'https://api.graph.cool/simple/v1/cj1132nbg4pwk0138d8ummhiq',
+  uri: 'https://api.graph.cool/simple/v1/__ENTER_YOUR_KEY__',
   dataIdFromObject: record => record.id,
 })
 
