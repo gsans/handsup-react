@@ -1,7 +1,8 @@
 # handsup-react
 
 <img src="./src/images/handsup.gif"/>
-[Live](https://handsup-63347.firebaseapp.com/#/)
+
+- [Live](https://handsup-63347.firebaseapp.com/#/)
 
 Make your event more interactive allowing attendees to participate by adding questions and voting using their phone or laptop.
 
