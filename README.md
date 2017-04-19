@@ -4,6 +4,7 @@
 
 - [Live](https://handsup-63347.firebaseapp.com/#/)
 
+## HandsUp 🙌
 Make your event more interactive allowing attendees to participate by adding questions and voting using their phone or laptop.
 
 Organisers and speakers can use it to answer questions and run Q&A or panels sessions smoothly.
