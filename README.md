@@ -7,9 +7,16 @@ Make your event more interactive allowing attendees to participate by adding que
 
 Organisers and speakers can use it to answer questions and run Q&A or panels sessions smoothly.
 
+## Technology stack
+
+This application integrates the following technologies:
+- [Auth0](http://auth0.com) to authenticate users using their social profiles (Google, Twitter)
+- [Apollo Client](http://dev.apollodata.com) to communicate with GraphQL Server
+- [graph.cool](http://graph.cool) providing the GraphQL Server
+
 ## Usage
 
-
+Log in using your social account to be able to add new questions. In order to vote click on the heart button besides each question.
 
 ## Development
 
@@ -26,7 +33,7 @@ $ git clone https://github.com/gsans/handsup-react.git
 And then install dependencies:
 
 ```bash
-$ cd cerebro && yarn && cd ./app && yarn && cd ../
+$ cd handsup-react && yarn
 ```
 
 ### Run
@@ -35,13 +42,6 @@ $ yarn run dev
 ```
 
 > Note: requires a node version >=6.x
-
-## Technology stack
-
-This application integrates the following technologies:
-- [Auth0](http://auth0.com) to authenticate users using their social profiles (Google, Twitter)
-- [Apollo Client](http://dev.apollodata.com) to communicate with GraphQL Server
-- [graph.cool](http://graph.cool) providing the GraphQL Server
 
 ## Getting Started
 
