@@ -1,0 +1,7 @@
+#import "./Question.fragment.gql"
+
+mutation addQuestion($body: String!, $user: ID!) {
+  createQuestion(body: $body, userId: $user) { 
+    ...question
+  }
+}

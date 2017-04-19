@@ -1,0 +1,6 @@
+.DS_Store
+npm-debug.log
+data/schema.graphql
+node_modules
+yarn.lock
+dist

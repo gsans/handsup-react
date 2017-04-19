@@ -1,0 +1,432 @@
+@import "https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic";
+
+:root {
+  --filterx2: contrast(1) brightness(1.2) hue-rotate(-20deg);
+}
+
+* {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+body {
+  font-family: "Roboto", 'Helvetica Neue, Helvetica, Arial', sans-serif;
+  overflow-y: hidden;
+  height: 100%;
+}
+#root, html {
+  height: 100%;
+}
+
+.app {
+  margin: 50px 0 0 0;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 130px;
+}
+.list {
+  margin-bottom: 150px;
+  overflow: hidden;
+}
+
+.navbar {
+  height: 60px;
+}
+.navbar-inverse {
+  background: -webkit-linear-gradient(to top right, #e91e63, #642889);
+  background: -moz-linear-gradient(to top right, #e91e63, #642889);
+  background: -o-linear-gradient(to top right, #e91e63, #642889);
+  background: linear-gradient(to top right, #e91e63, #642889);
+  border-bottom: 2px solid #e91e63;
+}
+
+li.complete {
+  text-decoration: line-through;
+}
+
+a.inactive {
+  text-decoration: none;
+}
+
+.profile img {
+  width: 70px;
+  border-radius: 50%;
+  border: 5px solid #e91e63;
+  margin-top: 0px;
+  -webkit-box-shadow: 0 0px 10px rgba(233, 30, 99, 0.5);
+  -moz-box-shadow: 0 0px 10px rgba(233, 30, 99, 0.5);
+  box-shadow: 0 0px 10px rgba(233, 30, 99, 0.5);
+  background: white;
+}
+.profile {
+  position: absolute;
+  margin-top: 10px;
+}
+.profile-container {
+  display: block;
+}
+.profile-small {
+  position: relative; 
+  float: left;
+  margin-right: 10px;
+}
+.profile-small img {
+  width: 34px;
+  border-radius: 50%;
+  border: 2px solid #eee;
+  margin-top: 0px;
+  background: white;
+  filter: var(--filterx2);
+  -webkit-filter: var(--filterx2);
+  -moz-filter: var(--filterx2);
+  -ms-filter: var(--filterx2);
+  -o-filter: var(--filterx2);
+}
+.profile-small-text {
+  line-height: 3;
+  color: #aaa;
+  text-shadow: none;
+  font-style: italic;
+}
+.profile-small-text time {
+  text-shadow: none;
+}
+
+.button-top {
+  margin-top: 14px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+li {
+  padding: 45px 30% 30px 30%;
+}
+
+ul.blocks {
+  display: flex;
+  margin-left: 2px;
+}
+.blocks li {
+  padding: 0px;
+  float:left;
+  font-size: 20px;
+}
+.block {
+  border-radius: 1px;
+  border: 1px solid #e91e63;
+  background: #e91e63;
+  width: 10%;
+  height: 5px;
+  margin: 15px 10px 15px 0px;
+  -webkit-box-shadow: 0 0px 10px rgba(233, 30, 99, 0.5);
+  -moz-box-shadow: 0 0px 10px rgba(233, 30, 99, 0.5);
+  box-shadow: 0 0px 10px rgba(233, 30, 99, 0.5);
+}
+
+li { 
+  background: #f9f9f9; /* fallback */
+  background: -webkit-linear-gradient(0deg,#f9f9f9, #fff); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(0deg,#f9f9f9, #fff); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(0deg,#f9f9f9, #fff); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(0deg, #f9f9f9, #fff); /* Standard syntax */
+}
+
+.text-header {
+  font-style: italic;
+  font-size: 1em;
+  color: #888;
+  text-align: left;
+}
+.text-body {
+  font-weight: normal;
+  font-size: 3em;
+  color: #424242;
+  line-height: 1;
+}
+
+.votes {
+  font-style: italic;
+}
+
+/* fixes for bootstrap */
+.nav>li>a:focus, .nav>li>a:hover {
+  text-decoration: none;
+  background-color: rgba(0,0,0,0);
+}
+.navbar-collapse {
+  border: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:hover {
+  background-color: #e91e63;
+  border-color: #e91e63;
+  transition: all 0.2s ease-in-out;
+}
+.btn-primary:hover,.btn-primary:active, .btn-primary:active:hover {
+  background-color: #ff0a5c;
+  border-color: #ff0a5c;
+}
+
+.centerBlock {
+  display: table;
+  margin: 0 auto;
+}
+.app-title {
+  font-size: 35px;
+  color: #00cafe;
+  line-height: 1.9;
+}
+
+.vote {
+  position: relative;
+  margin-top: 30px;
+}
+.btn-circle {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 50%;
+  background-color: #00cafe;
+  color: white;
+  -webkit-box-shadow: 0 0px 10px rgba(0, 202, 244, 0.5);
+  -moz-box-shadow: 0 0px 10px rgba(0, 202, 244, 0.5);
+  box-shadow: 0 0px 10px rgba(0, 202, 244, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+.btn-circle:hover, .btn-circle:focus, .btn-circle:active, .btn-circle:active:hover {
+  color: white;
+}
+.btn-circle:hover, .btn-circle:active:hover {
+  background-color: #33d6ff;
+}
+
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
+.bottom_wrapper {
+  border-radius: 10px 10px 0px 0px;
+  width: 50%;
+  background: -webkit-linear-gradient(to top right, #e91e63, #642889);
+  background: -moz-linear-gradient(to top right, #e91e63, #642889);
+  background: -o-linear-gradient(to top right, #e91e63, #642889);
+  background: linear-gradient(to top right, #e91e63, #642889);
+  padding: 20px 20px;
+  position: fixed; 
+  bottom: 0px;
+  left: 25%;
+  z-index: 1;
+}
+.bottom_wrapper .message_input_wrapper {
+  display: inline-block;
+  height: 50px;
+  border-radius: 10px;
+  width: calc(100% - 75px);
+  position: relative;
+  padding: 0 20px;
+  background: white;
+}
+.bottom_wrapper .message_input_wrapper .message_input {
+  border: none;
+  height: 100%;
+  box-sizing: border-box;
+  width: calc(100% - 40px);
+  position: absolute;
+  outline-width: 0;
+  color: #424242;
+  left: 15px;
+}
+.bottom_wrapper .send_message {
+  width: 60px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #00cafe;
+  border: 2px solid #00cafe;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  position: absolute; 
+  right: -75px;
+}
+button.send_message:disabled,
+button.send_message[disabled]{
+  opacity: 0.65; 
+  cursor: not-allowed;
+}
+button:not([disabled]) button.send_message:hover, button.send_message:active:hover {
+  background-color: #33d6ff;
+}
+
+.bottom_wrapper .send_message .text {
+  display: inline-block;
+  line-height: 48px;
+}
+
+.counter {
+  color: #bbb;
+  position: relative;
+  float: right;
+  top: 35px;
+  right: -14px;
+  text-align: right;
+  font-style: italic;
+  font-size: 10px;
+  text-shadow: none;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .profile img {
+    width: 60px;
+  }
+  .app-title {
+    font-size: 25px;
+    line-height: 2.3;
+  }
+  .vote {
+    margin-top: -10px;
+    float: right!important;
+  }
+  .counter {
+    top: 35px;
+  }
+  .bottom_wrapper {
+    width: 100%;
+    left: 0px;
+    border-radius: 0px;
+  }
+  li {
+    padding: 45px 40px 30px 40px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .app-title {
+    font-size: 22px;
+    line-height: 2;
+  }
+}
+
+
+div.flying-hearts {
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -50px;
+  pointer-events: none;
+}
+div.heart {
+  width: 30px;
+  height: 30px;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  display: none
+}
+div.heart i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .3
+}
+div.heart i.fa-heart-o {
+  z-index: 1;
+  opacity: .8
+}
+@keyframes flying1 {
+  0% {
+    opacity: 0;
+    bottom: 0;
+    left: 34%
+  }
+  40% {
+    opacity: .8
+  }
+  50% {
+    opacity: 1;
+    left: 0
+  }
+  60% {
+    opacity: .2
+  }
+  100% {
+    opacity: 0;
+    bottom: 100%;
+    left: 38%
+  }
+}
+@keyframes flying2 {
+  0% {
+    opacity: 0;
+    bottom: 0;
+    left: 0
+  }
+  40% {
+    opacity: .8
+  }
+  50% {
+    opacity: 1;
+    left: 25%
+  }
+  60% {
+    opacity: .2
+  }
+  100% {
+    opacity: 0;
+    bottom: 80%;
+    left: 0
+  }
+}
+@keyframes flying3 {
+  0% {
+    opacity: 0;
+    bottom: 0;
+    left: 0
+  }
+  40% {
+    opacity: .8
+  }
+  50% {
+    opacity: 1;
+    left: 50%
+  }
+  60% {
+    opacity: .2
+  }
+  100% {
+    opacity: 0;
+    bottom: 90%;
+    left: 0
+  }
+}
+
+a.twitter {
+  color: #e91e63;
+  text-decoration: none;
+}
+
+a.twitter:hover {
+  text-decoration: underline;
+}

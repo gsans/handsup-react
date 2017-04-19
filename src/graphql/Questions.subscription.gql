@@ -1,0 +1,11 @@
+#import "./Question.fragment.gql"
+
+subscription {
+  Question(filter: {
+    mutation_in: [CREATED]
+  }) {
+    node {
+      ...question
+    }
+  }
+}

@@ -1,0 +1,7 @@
+#import "./Question.fragment.gql"
+
+query questions {
+  allQuestions { 
+    ...question
+  }
+}

@@ -1,0 +1,7 @@
+fragment question on Question {
+  id 
+  body 
+  _votesMeta { count } 
+  createdAt 
+  user { username pictureUrl }   
+}
