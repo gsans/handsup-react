@@ -5,14 +5,16 @@ class QuestionList extends React.Component {
 
   render() {
     return (
-      <ul>
-        { this.props.questions.map(question =>
-          <Question
-            key={question.id}
-            question={question}
-          />
-        )}
-      </ul>
+      <div className='list'>
+        <ul>
+          { this.props.questions.map(question =>
+            <Question
+              key={question.id}
+              question={question}
+            />
+          )}
+        </ul>
+      </div>
     )
   }
 }
