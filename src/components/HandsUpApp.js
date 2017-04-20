@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
-import update from 'immutability-helper'
+
 import { withRouter } from 'react-router-dom'
 
 import TopNavigation from './TopNavigation'
@@ -10,10 +10,7 @@ import QuestionList from './QuestionList'
 import USER_QUERY from '../graphql/User.query.gql'
 import CREATE_USER_MUTATION from '../graphql/CreateUser.mutation.gql'
 
-import QUESTIONS_QUERY from '../graphql/Questions.query.gql'
-import QUESTIONS_SUBSCRIPTION from '../graphql/Questions.subscription.gql'
-
-import { isDuplicate, setUserDetails } from '../utils/helpers'
+import { setUserDetails } from '../utils/helpers'
 
 class HandsUpAppBase extends React.Component {
 
@@ -28,7 +25,6 @@ class HandsUpAppBase extends React.Component {
     if (this.props.auth.profile) {
       this.updateState({ isLogged: true })
     }
-    this.props.subscribeToNewQuestions()
   }
 
   updateState(state) {
@@ -62,9 +58,7 @@ class HandsUpAppBase extends React.Component {
       <div className='app'>
         <TopNavigation auth={this.props.auth} isLogged={this.state.isLogged} />
         {addQuestion}
-        <QuestionList
-          questions={this.props.questions || []}
-        />
+        <QuestionList />
         <div className='flying-hearts' />
       </div>
     )
@@ -114,43 +108,9 @@ const withCreateUser = graphql(CREATE_USER_MUTATION, {
   }),
 })
 
-const withQuestions = graphql(QUESTIONS_QUERY,
-  {
-    options: { pollInterval: 20000 },
-    props: ({ ownProps, data }) => {
-      if (data.loading) return { loading: true }
-      if (data.error) return { hasErrors: true }
-      return {
-        questions: data.allQuestions,
-      }
-    },
-  },
-)
+HandsUpApp.propTypes = {
+  auth: React.PropTypes.object.isRequired,
+}
 
-const withSubscription = graphql(QUESTIONS_QUERY,
-  {
-    props: ({ ownProps, data: { subscribeToMore } }) => ({
-      subscribeToNewQuestions() {
-        return subscribeToMore({
-          document: QUESTIONS_SUBSCRIPTION,
-          updateQuery: (state, { subscriptionData }) => {
-            const newQuestion = subscriptionData.data.Question.node
-            if (!isDuplicate(newQuestion.id)) {
-              return update(state, {
-                allQuestions: {
-                  $push: [newQuestion],
-                },
-              })
-            }
-          },
-        })
-      },
-    }),
-  },
-)
+export default withCreateUser(withUser(HandsUpApp))
 
-export default withSubscription(
-  withCreateUser(
-    withUser(withQuestions(HandsUpApp)),
-  ),
-)
