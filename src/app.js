@@ -7,7 +7,7 @@ import { client } from './client'
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { HashRouter, Route } from 'react-router-dom'
 
-import Authorisation from './components/Authorisation'
+import Authorisation from './services/Authorisation'
 const auth = new Authorisation()
 
 import './style.css'
