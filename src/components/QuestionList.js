@@ -3,7 +3,7 @@ import Question from './Question'
 import { graphql } from 'react-apollo'
 
 import update from 'immutability-helper'
-import { isDuplicate } from '../utils/helpers'
+import { isDuplicate, POLLING_TIME } from '../utils/helpers'
 
 import QUESTIONS_QUERY from '../graphql/Questions.query.gql'
 import QUESTIONS_SUBSCRIPTION from '../graphql/Questions.subscription.gql'
@@ -32,7 +32,7 @@ class QuestionList extends React.Component {
 
 const withQuestions = graphql(QUESTIONS_QUERY,
   {
-    options: { pollInterval: 20000 },
+    options: { pollInterval: POLLING_TIME },
     props: ({ ownProps, data }) => {
       if (data.loading) return { loading: true }
       if (data.error) return { hasErrors: true }

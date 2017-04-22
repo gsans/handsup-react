@@ -2,6 +2,7 @@ var $ = window.$
 const QUESTION_IDS_ITEMS = 10
 export const DEFAULT_PROFILE_USERNAME = 'happy-lama'
 export const DEFAULT_PROFILE_PIC = 'http://i1.kym-cdn.com/photos/images/original/000/869/487/ccf.png'
+export const POLLING_TIME = 20000
 
 export function addToLocalCache(question) {
   let questionsIds = []
