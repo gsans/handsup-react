@@ -25,11 +25,15 @@ class Question extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     // re-render only when votes have changed
-    if (nextProps.question && this.props.question &&
-      nextProps.question._votesMeta.count !== this.props.question._votesMeta.count) {
-      this.setState({
-        votes: nextProps.question._votesMeta.count,
-      })
+    if (nextProps.question && this.props.question) {
+      let newVotes = nextProps.question._votesMeta.count
+      let currentVotes = this.props.question._votesMeta.count
+
+      if (newVotes !== currentVotes) {
+        this.setState({
+          votes: newVotes,
+        })
+      }
     }
   }
 
