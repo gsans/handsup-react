@@ -58,7 +58,7 @@ class HandsUpAppBase extends React.Component {
       <div className='app'>
         <TopNavigation auth={this.props.auth} isLogged={this.state.isLogged} />
         {addQuestion}
-        <QuestionList />
+        <QuestionList auth={this.props.auth} />
         <div className='flying-hearts' />
       </div>
     )

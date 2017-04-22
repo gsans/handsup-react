@@ -22,6 +22,7 @@ class QuestionList extends React.Component {
             <Question
               key={question.id}
               question={question}
+              auth={this.props.auth}
             />
           )}
         </ul>
@@ -64,5 +65,9 @@ const withSubscription = graphql(QUESTIONS_QUERY,
     }),
   },
 )
+
+QuestionList.propTypes = {
+  auth: React.PropTypes.object.isRequired,
+}
 
 export default withSubscription(withQuestions(QuestionList))

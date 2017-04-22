@@ -3,5 +3,5 @@ fragment question on Question {
   body 
   createdAt 
   _votesMeta { count } 
-  user { username pictureUrl }   
+  user { id username pictureUrl }   
 }

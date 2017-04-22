@@ -201,9 +201,10 @@ li {
 }
 .btn-circle:hover, .btn-circle:focus, .btn-circle:active, .btn-circle:active:hover {
   color: white;
-}
-.btn-circle:hover, .btn-circle:active:hover {
   background-color: #33d6ff;
+}
+.btn-circle.disabled, .btn-circle[disabled], .btn-circle:disabled, .btn-circle:active:hover[disabled], .btn-circle:hover[disabled] {
+  background-color: #aaa;
 }
 
 .btn-circle.btn-lg {
@@ -272,6 +273,7 @@ button.send_message:disabled,
 button.send_message[disabled]{
   opacity: 0.65; 
   cursor: not-allowed;
+  border: 2px solid #848484;
 }
 button:not([disabled]) button.send_message:hover, button.send_message:active:hover {
   background-color: #33d6ff;

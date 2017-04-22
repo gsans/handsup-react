@@ -15,7 +15,17 @@ class Question extends React.Component {
     super(props)
     this.state = {
       votes: this.props.question._votesMeta.count,
+      isTheAuthor: this.isTheAuthor(this.props.auth.userId),
     }
+  }
+
+  isTheAuthor(userId) {
+    let questionUserId
+
+    if (this.props.question && this.props.question.user) {
+      questionUserId = this.props.question.user.id
+    }
+    return (userId === questionUserId)
   }
 
   componentDidMount() {
@@ -47,6 +57,7 @@ class Question extends React.Component {
   onSubmit() {
     this.setState({
       votes: this.state.votes+1,
+      isTheAuthor: this.isTheAuthor(this.props.auth.userId),
     })
     this.props
       .vote(this.props.question.id)
@@ -86,7 +97,7 @@ class Question extends React.Component {
           <div className='col-md-1'>
             <div className='vote'>
               <button className='btn btn-circle'
-                onClick={e => this.onSubmit()}>
+                onClick={e => this.onSubmit()} disabled={this.state.isTheAuthor}>
                 <i className='fa fa-heart' />
               </button>
             </div>
@@ -111,6 +122,7 @@ const withVote = graphql(CREATE_VOTE_MUTATION,
 
 Question.propTypes = {
   question: React.PropTypes.object.isRequired,
+  auth: React.PropTypes.object.isRequired,
 }
 
 export default withVote(Question)
