@@ -33,7 +33,7 @@ class QuestionList extends React.Component {
 const withQuestions = graphql(QUESTIONS_QUERY,
   {
     options: { pollInterval: POLLING_TIME },
-    props: ({ ownProps, data }) => {
+    props: ({ data }) => {
       if (data.loading) return { loading: true }
       if (data.error) return { hasErrors: true }
       return {
@@ -45,7 +45,7 @@ const withQuestions = graphql(QUESTIONS_QUERY,
 
 const withSubscription = graphql(QUESTIONS_QUERY,
   {
-    props: ({ ownProps, data: { subscribeToMore } }) => ({
+    props: ({ data: { subscribeToMore } }) => ({
       subscribeToNewQuestions() {
         return subscribeToMore({
           document: QUESTIONS_SUBSCRIPTION,

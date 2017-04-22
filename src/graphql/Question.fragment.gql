@@ -1,7 +1,7 @@
 fragment question on Question {
   id 
   body 
-  _votesMeta { count } 
   createdAt 
+  _votesMeta { count } 
   user { username pictureUrl }   
 }

@@ -16,7 +16,6 @@ class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-  profile: React.PropTypes.object.isRequired,
   isLogged: React.PropTypes.bool.isRequired,
 }
 

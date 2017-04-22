@@ -95,7 +95,7 @@ class Question extends React.Component {
 
 const withVote = graphql(CREATE_VOTE_MUTATION,
   {
-    props: ({ ownProps, mutate }) => ({
+    props: ({ mutate }) => ({
       vote(id) {
         return mutate({
           variables: { question: id },

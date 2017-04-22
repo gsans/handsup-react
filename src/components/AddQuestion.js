@@ -64,7 +64,7 @@ class AddQuestion extends React.Component {
 
 const withAddQuestion = graphql(CREATE_QUESTION_MUTATION,
   {
-    props: ({ ownProps, mutate }) => ({
+    props: ({ mutate }) => ({
       addQuestion(body, id) {
         return mutate({
           variables: { body: body, user: id },
