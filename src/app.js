@@ -6,21 +6,10 @@ import { ApolloProvider } from 'react-apollo'
 import { client } from './client'
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { HashRouter, Route } from 'react-router-dom'
-
 import Authorisation from './services/Authorisation'
-const auth = new Authorisation()
-
 import './style.css'
 
-function filter(state = 'SHOW_ALL', action) {
-  if (action.type === 'SET_FILTER') {
-    return action.filter
-  }
-  return state
-}
-
 const combinedReducer = combineReducers({
-  filter,
   apollo: client.reducer(),
 })
 
@@ -30,6 +19,8 @@ const store = compose(
   ),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore)(combinedReducer)
+
+const auth = new Authorisation()
 
 class HandsUpAppWrapper extends React.Component {
   render() {

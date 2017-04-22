@@ -24,6 +24,7 @@ class Question extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // re-render only when votes have changed
     if (nextProps.question && this.props.question &&
       nextProps.question._votesMeta.count !== this.props.question._votesMeta.count) {
       this.setState({
@@ -43,7 +44,20 @@ class Question extends React.Component {
     this.setState({
       votes: this.state.votes+1,
     })
-    this.props.vote(this.props.question.id)
+    this.props
+      .vote(this.props.question.id)
+      .catch(e => {
+        if (e.graphQLErrors) {
+          e.graphQLErrors.forEach(error => {
+            switch (error.code) {
+              case 3023:
+                break
+              default:
+                console.error(error)
+            }
+          }, this)
+        }
+      })
     flyingHearts('.flying-hearts')
   }
 
