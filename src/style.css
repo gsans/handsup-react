@@ -13,19 +13,27 @@ body {
   font-family: "Roboto", 'Helvetica Neue, Helvetica, Arial', sans-serif;
   overflow-y: hidden;
   height: 100%;
+  scroll-behavior: smooth;
 }
 #root, html {
   height: 100%;
 }
 
 .app {
-  margin: 50px 0 0 0;
+  margin: 0px;
   height: 100%;
   overflow-y: auto;
-  padding-bottom: 130px;
+}
+.app::before {
+ content: '';
+ margin-bottom: 50px; 
+ display: block;
+}
+ul {
+  margin-bottom: 170px;
 }
 .list {
-  margin-bottom: 150px;
+  margin-bottom: 170px;
   overflow: hidden;
 }
 

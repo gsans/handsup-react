@@ -26,7 +26,7 @@
     "react-timeago": "3.2.0",
     "redux": "^3.6.0",
     "redux-thunk": "2.2.0",
-    "smoothscroll-polyfill": "0.3.4",
+    "smoothscroll": "0.3.0",
     "subscriptions-transport-ws": "0.5.5",
     "webpack": "2.4.1",
     "whatwg-fetch": "^1.0.0"

@@ -8,8 +8,6 @@ import TweetParser from './TweetParser'
 
 import CREATE_VOTE_MUTATION from '../graphql/Vote.mutation.gql'
 
-require('smoothscroll-polyfill').polyfill()
-
 class Question extends React.Component {
 
   constructor(props) {

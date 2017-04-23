@@ -7,6 +7,8 @@ import { addToLocalCache, isDuplicate } from '../utils/helpers'
 import CREATE_QUESTION_MUTATION from '../graphql/CreateQuestion.mutation.gql'
 const MAX_CHAR = 140
 
+require('smoothscroll-polyfill').polyfill()
+
 class AddQuestion extends React.Component {
 
   constructor(props) {
@@ -20,6 +22,12 @@ class AddQuestion extends React.Component {
     event.preventDefault()
     if (!this.input.value || this.input.value.length === 0) {
       return
+    }
+    if (scrollTo) {
+      // let elem = document.getElementById('app')
+      // elem.scrollTop = elem.scrollHeight
+      let elem = document.querySelector('#bottom')
+      elem.scrollIntoView({ behavior: 'smooth' })
     }
     this.props
       .addQuestion(this.input.value, this.props.auth.userId)
