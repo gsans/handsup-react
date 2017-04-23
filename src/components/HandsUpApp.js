@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 
 import { withRouter } from 'react-router-dom'
@@ -109,7 +110,7 @@ const withCreateUser = graphql(CREATE_USER_MUTATION, {
 })
 
 HandsUpApp.propTypes = {
-  auth: React.PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
 }
 
 export default withCreateUser(withUser(HandsUpApp))

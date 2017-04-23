@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class TweetParser extends React.Component {
 
@@ -63,14 +64,14 @@ class TweetParser extends React.Component {
 }
 
 TweetParser.propTypes = {
-  urlClass: React.PropTypes.string,
-  userClass: React.PropTypes.string,
-  hashtagClass: React.PropTypes.string,
-  target: React.PropTypes.string,
-  searchWithHashtags: React.PropTypes.bool,
-  parseUsers: React.PropTypes.bool,
-  parseUrls: React.PropTypes.bool,
-  parseHashtags: React.PropTypes.bool,
+  urlClass: PropTypes.string,
+  userClass: PropTypes.string,
+  hashtagClass: PropTypes.string,
+  target: PropTypes.string,
+  searchWithHashtags: PropTypes.bool,
+  parseUsers: PropTypes.bool,
+  parseUrls: PropTypes.bool,
+  parseHashtags: PropTypes.bool,
 }
 
 TweetParser.defaultProps = {

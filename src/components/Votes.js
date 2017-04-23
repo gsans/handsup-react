@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { getBaseLog } from '../utils/helpers'
 
 class Votes extends React.Component {
@@ -22,7 +23,7 @@ class Votes extends React.Component {
 }
 
 Votes.propTypes = {
-  votes: React.PropTypes.number.isRequired,
+  votes: PropTypes.number.isRequired,
 }
 
 export default Votes

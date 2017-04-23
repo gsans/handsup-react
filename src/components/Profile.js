@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class Profile extends React.Component {
 
@@ -16,7 +17,7 @@ class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-  isLogged: React.PropTypes.bool.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 }
 
 export default Profile
