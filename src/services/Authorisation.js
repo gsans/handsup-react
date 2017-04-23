@@ -1,11 +1,13 @@
 import Auth0Lock from 'auth0-lock'
+import { EventEmitter } from 'events'
 
 const CLIENT_ID = 'Rwy4qqy5uEbGyLEGJBI1VOeDVSqDUTz0'
 const DOMAIN = 'public.eu.auth0.com'
 
-export default class Authorisation {
+export default class Authorisation extends EventEmitter {
 
   constructor() {
+    super()
     this.lock = new Auth0Lock(CLIENT_ID, DOMAIN, {
       theme: {
         logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Emoji_u1f64c.svg/2000px-Emoji_u1f64c.svg.png',
@@ -18,6 +20,9 @@ export default class Authorisation {
       },
     })
     this.lock.on('authenticated', this.doAuthentication.bind(this))
+    if (this.setMaxListeners) {
+      this.setMaxListeners(10000)
+    }
   }
 
   get auth0IdToken() {
@@ -40,6 +45,7 @@ export default class Authorisation {
     } else {
       localStorage.removeItem('profile')
     }
+    this.emit('profile-updated', value)
   }
 
   get userId() {
@@ -51,6 +57,7 @@ export default class Authorisation {
     } else {
       localStorage.removeItem('userId')
     }
+    this.emit('user-id-updated', value)
   }
 
   get role() {

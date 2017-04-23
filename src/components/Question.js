@@ -18,6 +18,11 @@ class Question extends React.Component {
       votes: this.props.question._votesMeta.count,
       isTheAuthor: this.isTheAuthor(this.props.auth.userId),
     }
+    this.props.auth.on('user-id-updated', (userId) => {
+      this.setState({
+        isTheAuthor: this.isTheAuthor(userId),
+      })
+    })
   }
 
   isTheAuthor(userId) {
@@ -46,6 +51,10 @@ class Question extends React.Component {
         })
       }
     }
+  }
+
+  componentWillUnmount() {
+    this.props.auth.remove('user-id-updated')
   }
 
   formatter(value, unit, suffix, date, defaultFormatter) {
