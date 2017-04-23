@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Profile from './Profile'
 
 class TopNavigation extends React.Component {
@@ -54,8 +55,8 @@ class TopNavigation extends React.Component {
 }
 
 TopNavigation.propTypes = {
-  auth: React.PropTypes.object.isRequired,
-  isLogged: React.PropTypes.bool.isRequired,
+  auth: PropTypes.object.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 }
 
 export default TopNavigation

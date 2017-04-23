@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 import Votes from './Votes'
 import { flyingHearts, DEFAULT_PROFILE_PIC } from '../utils/helpers'
@@ -121,8 +122,8 @@ const withVote = graphql(CREATE_VOTE_MUTATION,
 )
 
 Question.propTypes = {
-  question: React.PropTypes.object.isRequired,
-  auth: React.PropTypes.object.isRequired,
+  question: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
 }
 
 export default withVote(Question)

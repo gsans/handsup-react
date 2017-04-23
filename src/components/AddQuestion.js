@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 import update from 'immutability-helper'
 import { addToLocalCache, isDuplicate } from '../utils/helpers'
@@ -88,7 +89,7 @@ const withAddQuestion = graphql(CREATE_QUESTION_MUTATION,
 )
 
 AddQuestion.propTypes = {
-  auth: React.PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
 }
 
 export default withAddQuestion(AddQuestion)

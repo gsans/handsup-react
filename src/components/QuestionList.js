@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Question from './Question'
 import { graphql } from 'react-apollo'
 
@@ -67,7 +68,7 @@ const withSubscription = graphql(QUESTIONS_QUERY,
 )
 
 QuestionList.propTypes = {
-  auth: React.PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
 }
 
 export default withSubscription(withQuestions(QuestionList))
