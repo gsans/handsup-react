@@ -1,0 +1,5 @@
+mutation updateUser($user: ID!, $flagged: Boolean) {
+  updateUser(id: $user, flagged: $flagged) { 
+    id
+  }
+}

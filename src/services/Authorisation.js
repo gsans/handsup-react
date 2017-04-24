@@ -71,12 +71,26 @@ export default class Authorisation extends EventEmitter {
     }
   }
 
+  get flagged() {
+    return JSON.parse(localStorage.getItem('flagged'))
+  }
+  set flagged(value) {
+    if (value) {
+      localStorage.setItem('flagged', JSON.stringify(value))
+      // we logout the user if flagged
+      this.logout()
+    } else {
+      localStorage.removeItem('flagged')
+    }
+  }
+
   authenticate() {
     this.lock.show()
   }
 
   doAuthentication(authResult) {
-    if (!this.profile) {
+    // flagged users can't login
+    if (!this.profile && !this.flagged) {
       this.auth0IdToken = authResult.idToken
       this.lock.getProfile(authResult.idToken, (error, profile) => {
         if (error) {
@@ -91,11 +105,16 @@ export default class Authorisation extends EventEmitter {
     }
   }
 
-  logout() {
+  logout(client) {
+    if (client) {
+      // clear apollo client cache
+      client.resetStore()
+    }
     this.auth0IdToken = null
     this.profile = null
     this.userId = null
     this.role = null
+    this.flagged = null
     location.href = '/'
   }
 }

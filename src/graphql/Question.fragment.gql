@@ -3,6 +3,6 @@ fragment question on Question {
   body 
   createdAt 
   _votesMeta { count } 
-  user { id username pictureUrl } 
+  user { id username pictureUrl flagged } 
   flagged  
 }

@@ -483,3 +483,8 @@ svg#loader-1 {
 li.flagged, li.flagged row {
   background: #fbf4b7;
 }
+
+.list .btn {
+  margin-right: 15px;
+  margin-top: 20px;
+}

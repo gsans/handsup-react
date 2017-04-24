@@ -1,5 +1,5 @@
 query user { 
   user {
-    id role
+    id role flagged
   }
 }

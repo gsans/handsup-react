@@ -83,6 +83,9 @@ const withUser = graphql(USER_QUERY, {
     if (data.user && data.user.role) {
       ownProps.auth.role = data.user.role
     }
+    if (data.user && data.user.flagged) {
+      ownProps.auth.flagged = data.user.flagged
+    }
     return {
       user: data.user,
     }

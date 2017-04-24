@@ -10,6 +10,7 @@ import update from 'immutability-helper'
 
 import CREATE_VOTE_MUTATION from '../graphql/Vote.mutation.gql'
 import FLAG_QUESTION_MUTATION from '../graphql/FlagQuestion.mutation.gql'
+import FLAG_USER_MUTATION from '../graphql/FlagUser.mutation.gql'
 
 class Question extends React.Component {
 
@@ -89,12 +90,24 @@ class Question extends React.Component {
     flyingHearts('.flying-hearts')
   }
 
+  flagUser(question) {
+    this.props.flag(question.id, question.flagged).then(() => {
+      this.props.flagUser(question.user.id, question.user.flagged)
+    })
+  }
+  flagQuestion(question) {
+    this.props.flag(question.id, question.flagged)
+  }
+
   roles() {
     if (this.props.auth.role && this.props.auth.role!=='User') {
       return (
         <div className='centerBlock'>
-          <button className='btn btn-primary' onClick={() => this.props.flag(this.props.question.id, this.props.question.flagged)}>
-            Flag Toggle
+          <button className='btn btn-primary' onClick={() => this.flagUser(this.props.question)}>
+            Flag User
+          </button>
+          <button className='btn btn-primary' onClick={() => this.flagQuestion(this.props.question)}>
+            Flag Question
           </button>
         </div>
       )
@@ -178,9 +191,28 @@ const withFlag = graphql(FLAG_QUESTION_MUTATION,
   },
 )
 
+const withFlagUser = graphql(FLAG_USER_MUTATION,
+  {
+    props: ({ mutate }) => ({
+      flagUser(id, flagged) {
+        return mutate({
+          variables: { user: id, flagged: !flagged },
+          updateQueries: {
+            questions: (state, { mutationResult }) => {
+              return state
+            },
+          },
+        }).catch(error => {
+          Alert.error(error.message, ALERT_DEFAULT)
+        })
+      },
+    }),
+  },
+)
+
 Question.propTypes = {
   question: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
 }
 
-export default withFlag(withVote(Question))
+export default withFlagUser(withFlag(withVote(Question)))
