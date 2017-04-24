@@ -27,7 +27,7 @@ const auth = new Authorisation()
 class HandsUpAppWrapper extends React.Component {
   render() {
     return (
-      <HandsUpApp auth={auth} {...this.props} />
+      <HandsUpApp auth={auth} client={client} />
     )
   }
 }
