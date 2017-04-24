@@ -5,6 +5,7 @@ import Votes from './Votes'
 import { flyingHearts, DEFAULT_PROFILE_PIC, ALERT_DEFAULT } from '../utils/helpers'
 import TimeAgo from 'react-timeago'
 import TweetParser from './TweetParser'
+import Alert from 'react-s-alert'
 
 import CREATE_VOTE_MUTATION from '../graphql/Vote.mutation.gql'
 
