@@ -168,13 +168,17 @@ li {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:hover {
+
+.btn-primary {
+  transition: all 0.2s ease-in-out;
+  border-radius: 40px;
+  height: 40px;
+}
+.btn-primary:not([disabled]), .btn-primary:hover:not([disabled]), .btn-primary:focus:not([disabled]), .btn-primary:active:not([disabled]), .btn-primary:active:hover:not([disabled]) {
   background-color: #e91e63;
   border-color: #e91e63;
-  transition: all 0.2s ease-in-out;
-  border-radius: 20px;
 }
-.btn-primary:hover,.btn-primary:active, .btn-primary:active:hover {
+.btn-primary:hover:not([disabled]),.btn-primary:active, .btn-primary:active:hover:not([disabled]) {
   background-color: #ff0a5c;
   border-color: #ff0a5c;
 }
@@ -485,6 +489,6 @@ li.flagged, li.flagged row {
 }
 
 .list .btn {
-  margin-right: 15px;
+  margin-right: 10px;
   margin-top: 20px;
 }
