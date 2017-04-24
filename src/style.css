@@ -25,9 +25,9 @@ body {
   overflow-y: auto;
 }
 .app::before {
- content: '';
- margin-bottom: 50px; 
- display: block;
+  content: '';
+  margin-bottom: 50px; 
+  display: block;
 }
 ul {
   margin-bottom: 85px;
@@ -461,4 +461,20 @@ a.twitter:hover {
 .s-alert-wrapper .s-alert-error {
   background: #f44336;
   color: #fff;
+}
+
+.centered {
+  position: fixed;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  background-color: white;
+  height: 150px;
+  width: 350px;
+  margin-top: -90px;
+  margin-left: -175px;
+}
+svg#loader-1 {
+  height: 60px;
+  margin-top: 20px;
 }

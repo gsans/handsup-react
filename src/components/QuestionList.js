@@ -5,6 +5,7 @@ import { graphql } from 'react-apollo'
 
 import update from 'immutability-helper'
 import { isDuplicate, POLLING_TIME } from '../utils/helpers'
+import Loading from './Loading'
 
 import QUESTIONS_QUERY from '../graphql/Questions.query.gql'
 import QUESTIONS_SUBSCRIPTION from '../graphql/Questions.subscription.gql'
@@ -27,6 +28,8 @@ class QuestionList extends React.Component {
             />
           )}
         </ul>
+        {(!this.props.loading && this.props.questions && this.props.questions.length===0)? <div className='centered text-body'>No questions yet. Add one!</div> : null }
+        {this.props.loading ? <Loading /> : null}
         <section id='bottom' />
       </div>
     )
