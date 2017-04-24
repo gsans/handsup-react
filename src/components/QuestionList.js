@@ -31,7 +31,11 @@ class QuestionList extends React.Component {
               auth={this.props.auth}
             />
           )}
-          <li><div className='centerBlock'><button className='btn btn-primary' onClick={() => this.refetch()}>Refresh</button></div></li>
+          <li>
+            <div className='centerBlock'>
+              <button className='btn btn-primary' onClick={() => this.refetch()}>Refresh</button>
+            </div>
+          </li>
         </ul>
         {(!this.props.loading && this.props.questions && this.props.questions.length===0)? <div className='centered text-body'>No questions yet. Add one!</div> : null }
         {this.props.loading ? <Loading /> : null}

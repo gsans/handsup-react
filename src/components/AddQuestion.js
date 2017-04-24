@@ -64,7 +64,7 @@ class AddQuestion extends React.Component {
               onChange={e => this.handleChange(e)}
             />
             <div className='counter'>{this.state.chars_left}/{MAX_CHAR}</div>
-            <button className='send_message' type='submit' ref={(button) => (this.button= button)} disabled>Send</button>
+            <button className='send_message' type='submit' ref={(button) => (this.button = button)} disabled>Send</button>
           </form>
         </div>
       </div>
