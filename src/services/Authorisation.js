@@ -90,7 +90,7 @@ export default class Authorisation extends EventEmitter {
 
   doAuthentication(authResult) {
     // flagged users can't login
-    if (!this.profile && !this.flagged) {
+    if (!this.profile) {
       this.auth0IdToken = authResult.idToken
       this.lock.getProfile(authResult.idToken, (error, profile) => {
         if (error) {
