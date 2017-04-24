@@ -444,9 +444,10 @@ a.twitter:hover {
 /* alerts styling */
 .s-alert-box {
   border: 1px solid transparent;
+  opacity: .9;
 }
 .s-alert-wrapper .s-alert-info {
-  background: #33cfff;
+  background: #e91e63;
   color: #fff;
 }
 .s-alert-wrapper .s-alert-success {

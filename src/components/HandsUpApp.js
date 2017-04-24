@@ -115,7 +115,7 @@ const withCreateUser = graphql(CREATE_USER_MUTATION, {
           error.graphQLErrors.forEach(error => {
             switch (error.code) {
               case 3023:
-                Alert.success('Welcome back! 👋', ALERT_DEFAULT)
+                Alert.info('Welcome back! 👋', ALERT_DEFAULT)
                 break // existing user
               default:
                 Alert.error(error.message, ALERT_DEFAULT)
