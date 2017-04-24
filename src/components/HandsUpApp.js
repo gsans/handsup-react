@@ -92,6 +92,10 @@ const withUser = graphql(USER_QUERY, {
 const withCreateUser = graphql(CREATE_USER_MUTATION, {
   props: ({ ownProps, mutate }) => ({
     createUser({ variables }) {
+      // user already logged in
+      if (ownProps.auth.profile && ownProps.auth.userId) {
+        return Promise.resolve(null)
+      }
       return mutate({
         variables: {
           idToken: variables.idToken,
@@ -107,7 +111,17 @@ const withCreateUser = graphql(CREATE_USER_MUTATION, {
           },
         },
       }).catch(error => {
-        Alert.error(error.message, ALERT_DEFAULT)
+        if (error.graphQLErrors) {
+          error.graphQLErrors.forEach(error => {
+            switch (error.code) {
+              case 3023:
+                Alert.success('Welcome back! 👋', ALERT_DEFAULT)
+                break // existing user
+              default:
+                Alert.error(error.message, ALERT_DEFAULT)
+            }
+          }, this)
+        }
       })
     },
   }),

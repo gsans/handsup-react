@@ -32,7 +32,7 @@ class AddQuestion extends React.Component {
     this.props
       .addQuestion(this.input.value, this.props.auth.userId)
       .then(() => {
-        Alert.success('New question Added', ALERT_DEFAULT)
+        Alert.success('Question sent! ✨🚀', ALERT_DEFAULT)
         this.input.value = ''
         this.setState({
           chars_left: MAX_CHAR,
