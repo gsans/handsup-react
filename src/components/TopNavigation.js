@@ -15,6 +15,8 @@ class TopNavigation extends React.Component {
   }
 
   handleLogoutClick() {
+    // clear apollo client cache
+    this.props.client.resetStore()
     this.props.auth.logout()
   }
 
