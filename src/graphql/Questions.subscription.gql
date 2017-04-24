@@ -2,7 +2,7 @@
 
 subscription {
   Question(filter: {
-    mutation_in: [CREATED]
+    mutation_in: [CREATED, UPDATED]
   }) {
     node {
       ...question

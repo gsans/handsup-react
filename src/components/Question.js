@@ -6,8 +6,10 @@ import { flyingHearts, DEFAULT_PROFILE_PIC, ALERT_DEFAULT } from '../utils/helpe
 import TimeAgo from 'react-timeago'
 import TweetParser from './TweetParser'
 import Alert from 'react-s-alert'
+import update from 'immutability-helper'
 
 import CREATE_VOTE_MUTATION from '../graphql/Vote.mutation.gql'
+import FLAG_QUESTION_MUTATION from '../graphql/FlagQuestion.mutation.gql'
 
 class Question extends React.Component {
 
@@ -87,9 +89,25 @@ class Question extends React.Component {
     flyingHearts('.flying-hearts')
   }
 
+  roles() {
+    if (this.props.auth.role && this.props.auth.role!=='User') {
+      return (
+        <div className='centerBlock'>
+          <button className='btn btn-primary' onClick={() => this.props.flag(this.props.question.id, this.props.question.flagged)}>
+            Flag Toggle
+          </button>
+        </div>
+      )
+    }
+  }
+
   render() {
+    // hide flagged questions from users
+    if (this.props.question.flagged && (this.props.auth.role==='User' || !this.props.auth.role)) {
+      return null
+    }
     return (
-      <li>
+      <li className={this.props.question.flagged ? 'flagged' : ''}>
         <div className='row' ref={elem => (this.elem = elem)}>
           <div className='col-md-11'>
             <div className='text-body'>
@@ -114,6 +132,7 @@ class Question extends React.Component {
             </div>
           </div>
         </div>
+        {this.roles()}
       </li>
     )
   }
@@ -133,9 +152,35 @@ const withVote = graphql(CREATE_VOTE_MUTATION,
   },
 )
 
+const withFlag = graphql(FLAG_QUESTION_MUTATION,
+  {
+    props: ({ mutate }) => ({
+      flag(id, flagged) {
+        return mutate({
+          variables: { question: id, flagged: !flagged },
+          updateQueries: {
+            questions: (state, { mutationResult }) => {
+              let flagged = mutationResult.data.updateQuestion.flagged
+              return state.allQuestions.map(q => {
+                if (q.id === id) {
+                  return update(q, {
+                    flagged: {$set: flagged},
+                  })
+                }
+              })
+            },
+          },
+        }).catch(error => {
+          Alert.error(error.message, ALERT_DEFAULT)
+        })
+      },
+    }),
+  },
+)
+
 Question.propTypes = {
   question: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
 }
 
-export default withVote(Question)
+export default withFlag(withVote(Question))

@@ -1,0 +1,7 @@
+#import "./Question.fragment.gql"
+
+mutation updateQuestion($question: ID!, $flagged: Boolean) {
+  updateQuestion(id: $question, flagged: $flagged) { 
+    ...question
+  }
+}

@@ -479,3 +479,7 @@ svg#loader-1 {
   height: 60px;
   margin-top: 20px;
 }
+
+li.flagged, li.flagged row {
+  background: #fbf4b7;
+}
