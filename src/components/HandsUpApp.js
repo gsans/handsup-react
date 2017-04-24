@@ -21,6 +21,13 @@ class HandsUpAppBase extends React.Component {
     this.state = {
       isLogged: false,
     }
+    this.props.auth.on('profile-updated', this.updateIsLogged.bind(this))
+  }
+
+  updateIsLogged(profile) {
+    this.setState({
+      isLogged: !!profile,
+    })
   }
 
   componentWillMount() {
@@ -46,6 +53,10 @@ class HandsUpAppBase extends React.Component {
         }
       })
     }
+  }
+
+  componentWillUnmount() {
+    this.props.auth.removeListener('profile-updated', this.updateIsLogged.bind(this))
   }
 
   render() {

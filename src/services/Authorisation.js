@@ -115,6 +115,5 @@ export default class Authorisation extends EventEmitter {
     this.userId = null
     this.role = null
     this.flagged = null
-    location.href = '/'
   }
 }
