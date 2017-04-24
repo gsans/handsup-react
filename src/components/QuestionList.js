@@ -20,6 +20,22 @@ class QuestionList extends React.Component {
     this.props.data.refetch()
   }
 
+  refresh() {
+    if (!this.props.loading) {
+      return (
+        <ul>
+          <li>
+            <div className='centerBlock'>
+              <button className='btn btn-primary' onClick={() => this.refetch()}>Refresh</button>
+            </div>
+          </li>
+        </ul>
+      )
+    } else {
+      return null
+    }
+  }
+
   render() {
     return (
       <div className='list'>
@@ -32,13 +48,7 @@ class QuestionList extends React.Component {
             />
           )}
         </ul>
-        {!this.props.loading?<ul>
-          <li>
-            <div className='centerBlock'>
-              <button className='btn btn-primary' onClick={() => this.refetch()}>Refresh</button>
-            </div>
-          </li>
-        </ul>: null}
+        {this.refresh()}
         {(!this.props.loading && this.props.questions && this.props.questions.length===0)? <div className='centered text-body'>No questions yet. Add one!</div> : null }
         {this.props.loading ? <Loading /> : null}
         <section id='bottom' />

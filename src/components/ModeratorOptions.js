@@ -10,7 +10,6 @@ import FLAG_USER_MUTATION from '../graphql/FlagUser.mutation.gql'
 
 class ModeratorOptions extends React.Component {
   flagUser(question) {
-    debugger
     if (question.flagged) {
       this.props.flagUser(question.user.id, question.user.flagged)
     } else {
@@ -43,6 +42,8 @@ class ModeratorOptions extends React.Component {
           </button>
         </div>
       )
+    } else {
+      return null
     }
   }
 }
@@ -91,7 +92,6 @@ const withFlagUser = graphql(FLAG_USER_MUTATION, {
 })
 
 ModeratorOptions.propTypes = {
-  role: PropTypes.string.isRequired,
   question: PropTypes.object.isRequired,
 }
 
