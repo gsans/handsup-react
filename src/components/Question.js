@@ -6,11 +6,10 @@ import { flyingHearts, DEFAULT_PROFILE_PIC, ALERT_DEFAULT } from '../utils/helpe
 import TimeAgo from 'react-timeago'
 import TweetParser from './TweetParser'
 import Alert from 'react-s-alert'
-import update from 'immutability-helper'
+
+import ModeratorOptions from './ModeratorOptions'
 
 import CREATE_VOTE_MUTATION from '../graphql/Vote.mutation.gql'
-import FLAG_QUESTION_MUTATION from '../graphql/FlagQuestion.mutation.gql'
-import FLAG_USER_MUTATION from '../graphql/FlagUser.mutation.gql'
 
 class Question extends React.Component {
 
@@ -145,7 +144,9 @@ class Question extends React.Component {
             </div>
           </div>
         </div>
-        {this.roles()}
+        <ModeratorOptions
+          question={this.props.question}
+          role={this.props.auth.role} />
       </li>
     )
   }
@@ -165,54 +166,9 @@ const withVote = graphql(CREATE_VOTE_MUTATION,
   },
 )
 
-const withFlag = graphql(FLAG_QUESTION_MUTATION,
-  {
-    props: ({ mutate }) => ({
-      flag(id, flagged) {
-        return mutate({
-          variables: { question: id, flagged: !flagged },
-          updateQueries: {
-            questions: (state, { mutationResult }) => {
-              let flagged = mutationResult.data.updateQuestion.flagged
-              return state.allQuestions.map(q => {
-                if (q.id === id) {
-                  return update(q, {
-                    flagged: {$set: flagged},
-                  })
-                }
-              })
-            },
-          },
-        }).catch(error => {
-          Alert.error(error.message, ALERT_DEFAULT)
-        })
-      },
-    }),
-  },
-)
-
-const withFlagUser = graphql(FLAG_USER_MUTATION,
-  {
-    props: ({ mutate }) => ({
-      flagUser(id, flagged) {
-        return mutate({
-          variables: { user: id, flagged: !flagged },
-          updateQueries: {
-            questions: (state, { mutationResult }) => {
-              return state
-            },
-          },
-        }).catch(error => {
-          Alert.error(error.message, ALERT_DEFAULT)
-        })
-      },
-    }),
-  },
-)
-
 Question.propTypes = {
   question: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
 }
 
-export default withFlagUser(withFlag(withVote(Question)))
+export default withVote(Question)

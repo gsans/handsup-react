@@ -24,13 +24,15 @@ class QuestionList extends React.Component {
     return (
       <div className='list'>
         <ul>
-          { this.props.questions && this.props.questions.map(question =>
+          { this.props.questions && this.props.questions.map((q, i) =>
             <Question
-              key={question.id}
-              question={question}
+              key={i}
+              question={q}
               auth={this.props.auth}
             />
           )}
+        </ul>
+        <ul>
           <li>
             <div className='centerBlock'>
               <button className='btn btn-primary' onClick={() => this.refetch()}>Refresh</button>
