@@ -1,5 +1,4 @@
 var $ = window.$
-const QUESTION_IDS_ITEMS = 10
 export const DEFAULT_PROFILE_USERNAME = 'happy-lama'
 export const DEFAULT_PROFILE_PIC = 'http://i1.kym-cdn.com/photos/images/original/000/869/487/ccf.png'
 export const POLLING_TIME = 20000
@@ -13,15 +12,8 @@ export function addToLocalCache(question) {
   localStorage.setItem('questionIds', JSON.stringify(questionsIds))
 }
 
-export function isDuplicate(questionId) {
-  let questionsIds = []
-  if (!localStorage.getItem('questionIds')) {
-    return false
-  }
-  questionsIds = JSON.parse(localStorage.getItem('questionIds'))
-  // only worry about last x questions
-  questionsIds = questionsIds.slice(Math.max(questionsIds.length - QUESTION_IDS_ITEMS, 1))
-  return !!questionsIds.find(v => v === questionId)
+export function isDuplicate(questionId, list) {
+  return !!list.find(v => v.id === questionId)
 }
 
 export function normalise(name) {

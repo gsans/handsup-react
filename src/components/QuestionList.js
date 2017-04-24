@@ -79,7 +79,7 @@ const withSubscription = graphql(QUESTIONS_QUERY,
           document: QUESTIONS_SUBSCRIPTION,
           updateQuery: (state, { subscriptionData }) => {
             const newQuestion = subscriptionData.data.Question.node
-            if (!isDuplicate(newQuestion.id)) {
+            if (!isDuplicate(newQuestion.id, state.allQuestions)) {
               return update(state, {
                 allQuestions: {
                   $push: [newQuestion],
