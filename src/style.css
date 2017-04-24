@@ -172,6 +172,7 @@ li {
   background-color: #e91e63;
   border-color: #e91e63;
   transition: all 0.2s ease-in-out;
+  border-radius: 20px;
 }
 .btn-primary:hover,.btn-primary:active, .btn-primary:active:hover {
   background-color: #ff0a5c;
