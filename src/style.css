@@ -440,3 +440,24 @@ a.twitter {
 a.twitter:hover {
   text-decoration: underline;
 }
+
+/* alerts styling */
+.s-alert-box {
+  border: 1px solid transparent;
+}
+.s-alert-wrapper .s-alert-info {
+  background: #33cfff;
+  color: #fff;
+}
+.s-alert-wrapper .s-alert-success {
+  background: #45edc6;
+  color: #fff;
+}
+.s-alert-wrapper .s-alert-warning {
+  background: #ffcc33; 
+  color: #fff;
+}
+.s-alert-wrapper .s-alert-error {
+  background: #f44336;
+  color: #fff;
+}

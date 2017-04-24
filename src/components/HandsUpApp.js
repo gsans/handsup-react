@@ -11,7 +11,8 @@ import QuestionList from './QuestionList'
 import USER_QUERY from '../graphql/User.query.gql'
 import CREATE_USER_MUTATION from '../graphql/CreateUser.mutation.gql'
 
-import { setUserDetails } from '../utils/helpers'
+import { setUserDetails, ALERT_DEFAULT } from '../utils/helpers'
+import Alert from 'react-s-alert'
 
 class HandsUpAppBase extends React.Component {
 
@@ -61,6 +62,7 @@ class HandsUpAppBase extends React.Component {
         {addQuestion}
         <QuestionList auth={this.props.auth} />
         <div className='flying-hearts' />
+        <Alert stack={{limit: 3}} />
       </div>
     )
   }

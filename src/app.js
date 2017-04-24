@@ -8,6 +8,8 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { HashRouter, Route } from 'react-router-dom'
 import Authorisation from './services/Authorisation'
 import './style.css'
+import 'react-s-alert/dist/s-alert-default.css'
+import 'react-s-alert/dist/s-alert-css-effects/slide.css'
 
 const combinedReducer = combineReducers({
   apollo: client.reducer(),

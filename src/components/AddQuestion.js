@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 import update from 'immutability-helper'
-import { addToLocalCache, isDuplicate } from '../utils/helpers'
+import { addToLocalCache, isDuplicate, ALERT_DEFAULT } from '../utils/helpers'
+require('smoothscroll-polyfill').polyfill()
+import Alert from 'react-s-alert'
 
 import CREATE_QUESTION_MUTATION from '../graphql/CreateQuestion.mutation.gql'
 const MAX_CHAR = 140
-
-require('smoothscroll-polyfill').polyfill()
 
 class AddQuestion extends React.Component {
 
@@ -32,6 +32,7 @@ class AddQuestion extends React.Component {
     this.props
       .addQuestion(this.input.value, this.props.auth.userId)
       .then(() => {
+        Alert.success('New question Added', ALERT_DEFAULT)
         this.input.value = ''
         this.setState({
           chars_left: MAX_CHAR,

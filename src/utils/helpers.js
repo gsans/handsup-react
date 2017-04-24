@@ -68,3 +68,9 @@ export function setUserDetails(auth) {
     role: 'User',
   }
 }
+
+export let ALERT_DEFAULT = {
+  position: 'top-right',
+  effect: 'slide',
+  offset: 60,
+}
