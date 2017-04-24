@@ -91,6 +91,8 @@ const withAddQuestion = graphql(CREATE_QUESTION_MUTATION,
               }
             },
           },
+        }).catch(error => {
+          Alert.error(error.message, ALERT_DEFAULT)
         })
       },
     }),

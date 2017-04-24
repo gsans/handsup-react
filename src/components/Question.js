@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 import Votes from './Votes'
-import { flyingHearts, DEFAULT_PROFILE_PIC } from '../utils/helpers'
+import { flyingHearts, DEFAULT_PROFILE_PIC, ALERT_DEFAULT } from '../utils/helpers'
 import TimeAgo from 'react-timeago'
 import TweetParser from './TweetParser'
 
@@ -124,6 +124,8 @@ const withVote = graphql(CREATE_VOTE_MUTATION,
       vote(id) {
         return mutate({
           variables: { question: id },
+        }).catch(error => {
+          Alert.error(error.message, ALERT_DEFAULT)
         })
       },
     }),

@@ -106,6 +106,8 @@ const withCreateUser = graphql(CREATE_USER_MUTATION, {
             return state
           },
         },
+      }).catch(error => {
+        Alert.error(error.message, ALERT_DEFAULT)
       })
     },
   }),
