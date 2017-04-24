@@ -32,13 +32,13 @@ class QuestionList extends React.Component {
             />
           )}
         </ul>
-        <ul>
+        {!this.props.loading?<ul>
           <li>
             <div className='centerBlock'>
               <button className='btn btn-primary' onClick={() => this.refetch()}>Refresh</button>
             </div>
           </li>
-        </ul>
+        </ul>: null}
         {(!this.props.loading && this.props.questions && this.props.questions.length===0)? <div className='centered text-body'>No questions yet. Add one!</div> : null }
         {this.props.loading ? <Loading /> : null}
         <section id='bottom' />
