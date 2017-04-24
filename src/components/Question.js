@@ -98,21 +98,6 @@ class Question extends React.Component {
     this.props.flag(question.id, question.flagged)
   }
 
-  roles() {
-    if (this.props.auth.role && this.props.auth.role!=='User') {
-      return (
-        <div className='centerBlock'>
-          <button className='btn btn-primary' onClick={() => this.flagUser(this.props.question)}>
-            Flag User
-          </button>
-          <button className='btn btn-primary' onClick={() => this.flagQuestion(this.props.question)}>
-            Flag Question
-          </button>
-        </div>
-      )
-    }
-  }
-
   render() {
     // hide flagged questions from users
     if (this.props.question.flagged && (this.props.auth.role==='User' || !this.props.auth.role)) {
@@ -138,7 +123,7 @@ class Question extends React.Component {
           <div className='col-md-1'>
             <div className='vote'>
               <button className='btn btn-circle'
-                onClick={e => this.onSubmit()} disabled={this.state.isTheAuthor}>
+                onClick={e => this.onSubmit()} disabled={this.state.isTheAuthor || this.props.question.flagged}>
                 <i className='fa fa-heart' />
               </button>
             </div>
