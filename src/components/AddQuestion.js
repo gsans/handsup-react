@@ -85,7 +85,7 @@ const withAddQuestion = graphql(CREATE_QUESTION_MUTATION,
                 addToLocalCache(newQuestion)
                 return update(state, {
                   allQuestions: {
-                    $push: [mutationResult.data.createQuestion],
+                    $push: [newQuestion],
                   },
                 })
               }
