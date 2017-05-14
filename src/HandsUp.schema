@@ -1,0 +1,47 @@
+﻿type File implements Node {
+  contentType: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime!
+  url: String! @isUnique
+}
+
+type Question implements Node {
+  body: String!
+  createdAt: DateTime!
+  flagged: Boolean
+  id: ID! @isUnique
+  updatedAt: DateTime!
+  user: User @relation(name: "UserOnQuestion")
+  votes: [Vote!]! @relation(name: "VoteOnQuestion")
+}
+
+type User implements Node {
+  auth0UserId: String @isUnique
+  createdAt: DateTime!
+  flagged: Boolean
+  id: ID! @isUnique
+  name: String
+  pictureUrl: String
+  questions: [Question!]! @relation(name: "UserOnQuestion")
+  role: USER_ROLE
+  updatedAt: DateTime!
+  username: String
+}
+
+type Vote implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  question: Question @relation(name: "VoteOnQuestion")
+  updatedAt: DateTime!
+}
+
+enum USER_ROLE {
+  Admin
+  Organiser
+  Moderator
+  User
+}
