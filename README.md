@@ -2,8 +2,6 @@
 
 <img src="./src/images/handsup.gif"/>
 
-- [Live](https://handsup-63347.firebaseapp.com/#/)
-
 ## HandsUp 🙌
 Make your events more interactive allowing attendees to participate by adding questions and voting using their phone or laptop.
 
