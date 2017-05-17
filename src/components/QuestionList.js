@@ -20,8 +20,13 @@ class QuestionList extends React.Component {
     this.props.data.refetch()
   }
 
+  isEmpty() {
+    return (!this.props.loading && (!this.props.questions ||
+      this.props.questions && (this.props.questions.length===0) || (this.props.questions.filter(q => q.flagged).length===this.props.questions.length && !this.props.auth.role)))
+  }
+
   refresh() {
-    if (!this.props.loading) {
+    if (!this.isEmpty() && !this.props.loading) {
       return (
         <ul>
           <li>
@@ -49,7 +54,7 @@ class QuestionList extends React.Component {
           )}
         </ul>
         {this.refresh()}
-        {(!this.props.loading && this.props.questions && this.props.questions.length===0)? <div className='centered text-body'>No questions yet. Add one!</div> : null }
+        {this.isEmpty()? <div className='centered text-body'>There are no questions.</div> : null }
         {this.props.loading ? <Loading /> : null}
         <section id='bottom' />
       </div>
