@@ -59,7 +59,7 @@ class TweetParser extends React.Component {
       })
     }
 
-    return <div dangerouslySetInnerHTML={{ __html: tweet }} />
+    return <p style={{'textOverflow': 'ellipsis', 'overflow': 'hidden'}} dangerouslySetInnerHTML={{ __html: tweet }} />
   }
 }
 
