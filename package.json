@@ -28,6 +28,7 @@
     "redux": "^3.6.0",
     "redux-thunk": "2.2.0",
     "smoothscroll": "0.3.0",
+    "smoothscroll-polyfill": "^0.3.5",
     "subscriptions-transport-ws": "0.5.5",
     "webpack": "2.4.1",
     "whatwg-fetch": "^1.0.0"
