@@ -51,7 +51,12 @@ class QuestionList extends React.Component {
               question={q}
               auth={this.props.auth}
             />
-          )}
+          ).sort((a, b) => {
+            if ((this.props.auth.role==='User' || !this.props.auth.role)) return 0
+
+            return (b.props.question._votesMeta.count - a.props.question._votesMeta.count)
+          })
+        }
         </ul>
         {this.refresh()}
         {this.isEmpty()? <div className='centered text-body'>There are no questions.</div> : null }
