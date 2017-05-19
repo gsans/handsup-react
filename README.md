@@ -2,6 +2,8 @@
 
 <img src="./src/images/handsup.gif"/>
 
+[Building HandsUp: an OS real-time Q&A App using GraphQL and React](https://medium.com/@gerard.sans/building-handsup-an-os-real-time-voting-app-using-graphql-and-react-b2b7dcd0e136)
+
 ## HandsUp 🙌
 Make your events more interactive allowing attendees to participate by adding questions and voting using their phone or laptop.
 
