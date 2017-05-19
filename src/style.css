@@ -2,6 +2,7 @@
 
 :root {
   --filterx2: contrast(1) brightness(1.2) hue-rotate(-20deg);
+  --filterx3: contrast(0.2) brightness(1.4);
 }
 
 * {
@@ -485,11 +486,29 @@ svg#loader-1 {
   margin-top: 20px;
 }
 
-li.flagged, li.flagged row {
-  background: #fbf4b7;
-}
-
 .list .btn {
   margin-right: 10px;
   margin-top: 20px;
+}
+
+li.flagged, li.flagged row {
+  background: #eeeeee;
+}
+
+li.flagged ul li {
+  background-color: #999;
+  border-color: #999;
+  box-shadow: 0 0px 10px #999;
+  color: #999;
+}
+li.flagged p {
+    color: #999;
+}
+
+li.flagged .profile-small img {
+  filter: var(--filterx3);
+  -webkit-filter: var(--filterx3);
+  -moz-filter: var(--filterx3);
+  -ms-filter: var(--filterx3);
+  -o-filter: var(--filterx3);
 }
