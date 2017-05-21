@@ -80,7 +80,7 @@ a.inactive {
   margin-right: 10px;
 }
 .profile-small img {
-  width: 34px;
+  width: 3.5em;
   border-radius: 50%;
   border: 2px solid #eee;
   margin-top: 0px;
@@ -96,13 +96,17 @@ a.inactive {
   color: #aaa;
   text-shadow: none;
   font-style: italic;
+  font-size: 1.5em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .profile-small-text time {
   text-shadow: none;
 }
 
 .button-top {
-  margin-top: 14px;
+  margin-top: 9px;
 }
 
 ul {
@@ -110,7 +114,7 @@ ul {
   padding-left: 0px;
 }
 li {
-  padding: 45px 30% 30px 30%;
+  padding: 55px 20% 55px 20%;
 }
 
 ul.blocks {
@@ -325,7 +329,8 @@ button:not([disabled]) button.send_message:hover, button.send_message:active:hov
   }
   .vote {
     margin-top: -10px;
-    float: right!important;
+    xfloat: right!important;
+    right: 32px;
   }
   .counter {
     top: 35px;
@@ -335,8 +340,11 @@ button:not([disabled]) button.send_message:hover, button.send_message:active:hov
     left: 0px;
     border-radius: 0px;
   }
+}
+
+@media only screen and (max-width: 992px) {
   li {
-    padding: 45px 40px 30px 40px;
+      padding: 55px 5% 55px 5%;
   }
 }
 

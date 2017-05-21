@@ -106,7 +106,7 @@ class Question extends React.Component {
     return (
       <li className={this.props.question.flagged ? 'flagged' : ''}>
         <div className='row' ref={elem => (this.elem = elem)}>
-          <div className='col-md-11'>
+          <div className='col-md-11 col-xs-10'>
             <div className='text-body'>
               <TweetParser parseUsers={false} parseUrls={false} hashtagClass={'twitter'} userClass={'twitter'} >{this.props.question.body}</TweetParser></div>
             <Votes votes={this.state.votes} />
@@ -120,7 +120,7 @@ class Question extends React.Component {
               </div>
             </div>
           </div>
-          <div className='col-md-1'>
+          <div className='col-md-1 col-xs-2'>
             <div className='vote'>
               <button className='btn btn-circle'
                 onClick={e => this.onSubmit()} disabled={this.state.isTheAuthor || this.props.question.flagged}>
