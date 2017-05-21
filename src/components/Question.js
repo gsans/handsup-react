@@ -97,10 +97,22 @@ class Question extends React.Component {
   flagQuestion(question) {
     this.props.flag(question.id, question.flagged)
   }
+  moderatorOptions() {
+    // hide flagged questions from organisers
+    if (this.props.auth.role==='User' || this.props.auth.role==='Organiser' || !this.props.auth.role) {
+      return null
+    } else {
+      return (
+        <ModeratorOptions
+          question={this.props.question}
+          role={this.props.auth.role} />
+      )
+    }
+  }
 
   render() {
     // hide flagged questions from users
-    if (this.props.question.flagged && (this.props.auth.role==='User' || !this.props.auth.role)) {
+    if (this.props.question.flagged && (this.props.auth.role==='User' || this.props.auth.role==='Organiser' || !this.props.auth.role)) {
       return null
     }
     return (
@@ -129,9 +141,7 @@ class Question extends React.Component {
             </div>
           </div>
         </div>
-        <ModeratorOptions
-          question={this.props.question}
-          role={this.props.auth.role} />
+        {this.moderatorOptions()}
       </li>
     )
   }
