@@ -108,7 +108,7 @@ class Question extends React.Component {
         <div className='row' ref={elem => (this.elem = elem)}>
           <div className='col-md-11 col-xs-10'>
             <div className='text-body'>
-              <TweetParser parseUsers={false} parseUrls={false} hashtagClass={'twitter'} userClass={'twitter'} >{this.props.question.body}</TweetParser></div>
+              <TweetParser parseUsers parseUrls hashtagClass={'twitter'} urlClass={'twitter'} userClass={'twitter'} >{this.props.question.body}</TweetParser></div>
             <Votes votes={this.state.votes} />
             <div className='profile-container'>
               <div className='profile-small'>
