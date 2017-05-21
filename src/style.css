@@ -155,6 +155,9 @@ li {
   line-height: 1;
   padding: 2px;
 }
+.text-body p {
+  padding: 3px;
+}
 
 .votes {
   font-style: italic;
