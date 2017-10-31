@@ -1,4 +1,4 @@
-﻿type File implements Node {
+﻿type File @model {
   contentType: String!
   createdAt: DateTime!
   id: ID! @isUnique
@@ -9,7 +9,7 @@
   url: String! @isUnique
 }
 
-type Question implements Node {
+type Question @model {
   body: String!
   createdAt: DateTime!
   flagged: Boolean
@@ -19,7 +19,7 @@ type Question implements Node {
   votes: [Vote!]! @relation(name: "VoteOnQuestion")
 }
 
-type User implements Node {
+type User @model {
   auth0UserId: String @isUnique
   createdAt: DateTime!
   flagged: Boolean
@@ -32,7 +32,7 @@ type User implements Node {
   username: String
 }
 
-type Vote implements Node {
+type Vote @model {
   createdAt: DateTime!
   id: ID! @isUnique
   question: Question @relation(name: "VoteOnQuestion")

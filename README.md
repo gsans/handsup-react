@@ -54,8 +54,8 @@ In order to run this project you need to create the data model (schema) below us
 This is the schema used
 
 ```graphql
-type Question {
-  id: ID!
+type Question @model {
+  id: ID! @isUnique
   body: String!
   votes: [Vote!]! @relation(name: "VoteOnQuestion")
   user: User @relation(name: "UserOnQuestion")
@@ -63,16 +63,16 @@ type Question {
   updatedAt: DateTime!
 }
 
-type Vote {
-  id: ID!
+type Vote @model {
+  id: ID! @isUnique
   question: Question @relation(name: "VoteOnQuestion")
   createdAt: DateTime!
   updatedAt: DateTime!
 }
 
-type User {
+type User @model {
   auth0UserId: String
-  id: ID!
+  id: ID! @isUnique
   name: String
   username: String
   pictureUrl: String
@@ -80,6 +80,13 @@ type User {
   role: USER_ROLE
   createdAt: DateTime!
   updatedAt: DateTime!
+}
+
+enum USER_ROLE {
+  Admin
+  Organiser
+  Moderator
+  User
 }
 ```
 
